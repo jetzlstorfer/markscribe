@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/KyleBanks/goodreads"
+	"github.com/shkh/lastfm-go/lastfm"
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/oauth2"
 )
@@ -22,6 +23,7 @@ var (
 	goodReadsID     string
 	username        string
 
+	lastfmapi    *lastfm.Api
 	lastFMUser   string
 	lastFMApiKey string
 	lastFMSecret string
@@ -86,6 +88,8 @@ func main() {
 	lastFMUser = os.Getenv("LASTFM_USER")
 	lastFMApiKey = os.Getenv("LASTFM_API_KEY")
 	lastFMSecret = os.Getenv("LASTFM_API_SECRET")
+
+	lastfmapi = lastfm.New(lastFMApiKey, lastFMSecret)
 
 	if len(gitHubToken) > 0 {
 		httpClient = oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(

@@ -5,15 +5,12 @@ import (
 )
 
 func getFavouriteAlbums(count int) interface{} {
-	api := lastfm.New(lastFMApiKey, lastFMSecret)
 
 	params := lastfm.P{
 		"user":  lastFMUser,
 		"limit": count,
-		"from":  2020,
-		"to":    2022,
 	}
-	albums, err := api.User.GetTopAlbums(params)
+	albums, err := lastfmapi.User.GetTopAlbums(params)
 	if err != nil {
 		panic(err)
 	}
@@ -21,15 +18,11 @@ func getFavouriteAlbums(count int) interface{} {
 }
 
 func getFavouriteTracks(count int) interface{} {
-	api := lastfm.New(lastFMApiKey, lastFMSecret)
-
 	params := lastfm.P{
 		"user":  lastFMUser,
 		"limit": count,
-		"from":  2020,
-		"to":    2022,
 	}
-	tracks, err := api.User.GetTopTracks(params)
+	tracks, err := lastfmapi.User.GetTopTracks(params)
 	if err != nil {
 		panic(err)
 	}
@@ -37,15 +30,11 @@ func getFavouriteTracks(count int) interface{} {
 }
 
 func getFavouriteArtists(count int) interface{} {
-	api := lastfm.New(lastFMApiKey, lastFMSecret)
-
 	params := lastfm.P{
 		"user":  lastFMUser,
 		"limit": count,
-		"from":  2020,
-		"to":    2022,
 	}
-	artists, err := api.User.GetTopArtists(params)
+	artists, err := lastfmapi.User.GetTopArtists(params)
 	if err != nil {
 		panic(err)
 	}
