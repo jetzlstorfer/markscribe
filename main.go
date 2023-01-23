@@ -22,6 +22,10 @@ var (
 	goodReadsID     string
 	username        string
 
+	lastFMUser   string
+	lastFMAPI    string
+	lastFMSecret string
+
 	write = flag.String("write", "", "write output to")
 )
 
