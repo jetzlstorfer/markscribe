@@ -23,7 +23,7 @@ var (
 	username        string
 
 	lastFMUser   string
-	lastFMAPI    string
+	lastFMApiKey string
 	lastFMSecret string
 
 	write = flag.String("write", "", "write output to")
@@ -63,12 +63,15 @@ func main() {
 		/* Literal.club */
 		"literalClubCurrentlyReading": literalClubCurrentlyReading,
 		/* Utils */
-		"humanize": humanized,
-		"reverse":  reverse,
-		"now":      time.Now,
-		"contains": strings.Contains,
-		"toLower":  strings.ToLower,
-		"comment":  comment,
+		"humanize":         humanized,
+		"reverse":          reverse,
+		"now":              time.Now,
+		"contains":         strings.Contains,
+		"toLower":          strings.ToLower,
+		"comment":          comment,
+		"favouriteAlbums":  getFavouriteAlbums,
+		"favouriteTracks":  getFavouriteTracks,
+		"favouriteArtists": getFavouriteArtists,
 	}).Parse(string(tplIn))
 	if err != nil {
 		fmt.Println("Can't parse template:", err)
@@ -79,6 +82,11 @@ func main() {
 	gitHubToken := os.Getenv("GITHUB_TOKEN")
 	goodReadsToken := os.Getenv("GOODREADS_TOKEN")
 	goodReadsID = os.Getenv("GOODREADS_USER_ID")
+
+	lastFMUser = os.Getenv("LASTFM_USER")
+	lastFMApiKey = os.Getenv("LASTFM_API_KEY")
+	lastFMSecret = os.Getenv("LASTFM_API_SECRET")
+
 	if len(gitHubToken) > 0 {
 		httpClient = oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(
 			&oauth2.Token{AccessToken: gitHubToken},

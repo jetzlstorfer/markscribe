@@ -8,6 +8,7 @@ require (
 	github.com/dustin/go-humanize v1.0.0
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/mmcdole/gofeed v1.1.3
+	github.com/shkh/lastfm-go v0.0.0-20191215035245-89a801c244e0 // indirect
 	github.com/shurcooL/githubv4 v0.0.0-20191127044304-8f68eb5628d0
 	github.com/shurcooL/graphql v0.0.0-20181231061246-d48a9a75455f
 	golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be
