@@ -1,23 +1,28 @@
 ### Hi there 👋
 
-<!-- 
-this is a comment that will be removed 
--->
+## Favourite albums of all time 🎶
 
-{{comment "<!-- This is a comment that won't be removed -->"}}
-
-more content goes here
-
-
-{{range favouriteAlbums 10}}
+{{range favouriteAlbums 5}}
 - {{.Artist.Name}} - {{.Name}}
 {{- end}}
 
-{{range favouriteArtists 10}}
+
+## Favourite artists of all time 👨‍🎤
+
+{{range favouriteArtists 5}}
 - {{.Name}} ({{.PlayCount}})
 {{- end}}
 
 
-{{range favouriteTracks 10}}
+## Favourite tracks of all time 💿
+
+{{range favouriteTracks 5}}
 - {{.Artist.Name}} - {{.Name}} ({{.PlayCount}})
+{{- end}}
+
+
+## Most recent tracks 🎺
+
+{{range recentTracks 10}}
+- {{.Artist.Name}} - {{.Name}}
 {{- end}}

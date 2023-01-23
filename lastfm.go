@@ -29,6 +29,18 @@ func getFavouriteTracks(count int) interface{} {
 	return tracks.Tracks
 }
 
+func getRecentTracks(count int) interface{} {
+	params := lastfm.P{
+		"user":  lastFMUser,
+		"limit": count,
+	}
+	tracks, err := lastfmapi.User.GetRecentTracks(params)
+	if err != nil {
+		panic(err)
+	}
+	return tracks.Tracks
+}
+
 func getFavouriteArtists(count int) interface{} {
 	params := lastfm.P{
 		"user":  lastFMUser,

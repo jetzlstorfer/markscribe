@@ -74,6 +74,7 @@ func main() {
 		"favouriteAlbums":  getFavouriteAlbums,
 		"favouriteTracks":  getFavouriteTracks,
 		"favouriteArtists": getFavouriteArtists,
+		"recentTracks":     getRecentTracks,
 	}).Parse(string(tplIn))
 	if err != nil {
 		fmt.Println("Can't parse template:", err)
