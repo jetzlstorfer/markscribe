@@ -4,7 +4,7 @@ import (
 	"github.com/shkh/lastfm-go/lastfm"
 )
 
-func getFavouriteAlbums(count int) interface{} {
+func lastFmFavouriteAlbums(count int) interface{} {
 
 	params := lastfm.P{
 		"user":  lastFMUser,
@@ -17,7 +17,7 @@ func getFavouriteAlbums(count int) interface{} {
 	return albums.Albums
 }
 
-func getFavouriteTracks(count int) interface{} {
+func lastFmFavouriteTracks(count int) interface{} {
 	params := lastfm.P{
 		"user":  lastFMUser,
 		"limit": count,
@@ -29,19 +29,7 @@ func getFavouriteTracks(count int) interface{} {
 	return tracks.Tracks
 }
 
-func getRecentTracks(count int) interface{} {
-	params := lastfm.P{
-		"user":  lastFMUser,
-		"limit": count,
-	}
-	tracks, err := lastfmapi.User.GetRecentTracks(params)
-	if err != nil {
-		panic(err)
-	}
-	return tracks.Tracks
-}
-
-func getFavouriteArtists(count int) interface{} {
+func lastFmFavouriteArtists(count int) interface{} {
 	params := lastfm.P{
 		"user":  lastFMUser,
 		"limit": count,
@@ -51,4 +39,16 @@ func getFavouriteArtists(count int) interface{} {
 		panic(err)
 	}
 	return artists.Artists
+}
+
+func lastFmRecentTracks(count int) interface{} {
+	params := lastfm.P{
+		"user":  lastFMUser,
+		"limit": count,
+	}
+	tracks, err := lastfmapi.User.GetRecentTracks(params)
+	if err != nil {
+		panic(err)
+	}
+	return tracks.Tracks
 }

@@ -65,16 +65,17 @@ func main() {
 		/* Literal.club */
 		"literalClubCurrentlyReading": literalClubCurrentlyReading,
 		/* Utils */
-		"humanize":         humanized,
-		"reverse":          reverse,
-		"now":              time.Now,
-		"contains":         strings.Contains,
-		"toLower":          strings.ToLower,
-		"comment":          comment,
-		"favouriteAlbums":  getFavouriteAlbums,
-		"favouriteTracks":  getFavouriteTracks,
-		"favouriteArtists": getFavouriteArtists,
-		"recentTracks":     getRecentTracks,
+		"humanize": humanized,
+		"reverse":  reverse,
+		"now":      time.Now,
+		"contains": strings.Contains,
+		"toLower":  strings.ToLower,
+		"comment":  comment,
+		/* LastFm */
+		"lastFmFavouriteAlbums":  lastFmFavouriteAlbums,
+		"lastFmFavouriteTracks":  lastFmFavouriteTracks,
+		"lastFmFavouriteArtists": lastFmFavouriteArtists,
+		"lastFmRecentTracks":     lastFmRecentTracks,
 	}).Parse(string(tplIn))
 	if err != nil {
 		fmt.Println("Can't parse template:", err)

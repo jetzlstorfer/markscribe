@@ -2,27 +2,27 @@
 
 ## Favourite albums of all time 🎶
 
-{{range favouriteAlbums 5}}
+{{range lastFmFavouriteAlbums 5}}
 - {{.Artist.Name}} - {{.Name}}
 {{- end}}
 
 
 ## Favourite artists of all time 👨‍🎤
 
-{{range favouriteArtists 5}}
+{{range lastFmFavouriteArtists 5}}
 - {{.Name}} ({{.PlayCount}})
 {{- end}}
 
 
 ## Favourite tracks of all time 💿
 
-{{range favouriteTracks 5}}
+{{range lastFmFavouriteTracks 5}}
 - {{.Artist.Name}} - {{.Name}} ({{.PlayCount}})
 {{- end}}
 
 
 ## Most recent tracks 🎺
 
-{{range recentTracks 10}}
+{{range lastFmRecentTracks 10}}
 - {{.Artist.Name}} - {{.Name}}
 {{- end}}
