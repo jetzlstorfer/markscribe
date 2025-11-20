@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/mmcdole/gofeed"
@@ -14,12 +15,13 @@ type RSSEntry struct {
 }
 
 func rssFeed(url string, count int) []RSSEntry {
-	var r []RSSEntry
+	r := []RSSEntry{}
 
 	fp := gofeed.NewParser()
 	feed, err := fp.ParseURL(url)
 	if err != nil {
-		panic(err)
+		fmt.Printf("Warning: failed to fetch RSS feed from %s: %v\n", url, err)
+		return r
 	}
 
 	for _, v := range feed.Items {
